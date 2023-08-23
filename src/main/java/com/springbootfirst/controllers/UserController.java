@@ -11,7 +11,14 @@ public class UserController {
 	@GetMapping("/")
 	public String welcome() {
 		
-		return "Welcome to Divine's new project. This is Spring boot Java.";
+		return "Welcome to Divine's new project. This is Spring boot Java...";
+		
+	}
+	
+	@GetMapping("/user")
+	public String getuser() {
+		
+		return "Get user";
 		
 	}
 
