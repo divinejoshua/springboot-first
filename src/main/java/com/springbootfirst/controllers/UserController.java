@@ -15,6 +15,8 @@ public class UserController {
 		
 	}
 	
+	
+//	Get user details
 	@GetMapping("/user")
 	public String getuser() {
 		
