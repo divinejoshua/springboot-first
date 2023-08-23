@@ -3,6 +3,8 @@ package com.springbootfirst.controllers;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,7 +55,7 @@ public class UserController {
 	
 //	Get user details
 	@PostMapping("/createuser")
-	public void createuser(@RequestBody UserModel user) {
+	public ResponseEntity<HttpStatus> createuser(@RequestBody UserModel user) {
 		
 				
 //		Convert the first name lower case and make it the user name
@@ -61,6 +63,8 @@ public class UserController {
 		
 //		Create the user 
 		userMap.put(username, user);
+		
+		return ResponseEntity.status(HttpStatus.OK).build();
 		
 	}
 
