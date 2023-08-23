@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springbootfirst.model.UserModel;
@@ -35,6 +37,7 @@ public class UserController {
 	}
 	
 	
+	
 //	Get user details
 	@GetMapping("/user/{username}")
 	public UserModel getuser(@PathVariable String username) {
@@ -43,6 +46,21 @@ public class UserController {
 		username = username.toLowerCase();
 		
 		return userMap.get(username);
+		
+	}
+	
+	
+	
+//	Get user details
+	@PostMapping("/createuser")
+	public void createuser(@RequestBody UserModel user) {
+		
+				
+//		Convert the first name lower case and make it the user name
+		String username = user.getFirstname().toLowerCase();
+		
+//		Create the user 
+		userMap.put(username, user);
 		
 	}
 
