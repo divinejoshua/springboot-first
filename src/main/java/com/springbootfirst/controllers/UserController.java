@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springbootfirst.model.UserModel;
@@ -16,13 +17,13 @@ public class UserController {
 	private Map<String, UserModel> userMap = new HashMap<>();
 	
 	
+//	User Data 
 	public UserController () {
-		userMap.put("John", new UserModel("John", "Doe", 123));
-		userMap.put("Jane", new UserModel("Jane", "Doe", 234));
-		userMap.put("Jack", new UserModel("Jack", "Doe", 345));
-		userMap.put("Jill", new UserModel("Jill", "Doe", 456));
+		userMap.put("john", new UserModel("John", "Doe", 123));
+		userMap.put("jane", new UserModel("Jane", "Doe", 234));
+		userMap.put("jack", new UserModel("Jack", "Doe", 345));
+		userMap.put("jill", new UserModel("Jill", "Doe", 456));
 	}
-	
 	
 	
 //	Home page 
@@ -35,10 +36,13 @@ public class UserController {
 	
 	
 //	Get user details
-	@GetMapping("/user")
-	public UserModel getuser() {
+	@GetMapping("/user/{username}")
+	public UserModel getuser(@PathVariable String username) {
 		
-		return new UserModel("John", "Doe", 123);
+//		Convert to lower case
+		username = username.toLowerCase();
+		
+		return userMap.get(username);
 		
 	}
 
