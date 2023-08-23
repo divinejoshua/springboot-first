@@ -2,6 +2,7 @@ package com.springbootfirst.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,14 +44,27 @@ public class UserController {
 	
 //	Get user details
 	@GetMapping("/user/{username}")
-	public UserModel getuser(@PathVariable String username) {
+	public ResponseEntity<UserModel> getuser(@PathVariable String username) {
+		
+		
 		
 //		Convert to lower case
 		username = username.toLowerCase();
 		
-		return userMap.get(username);
+		
+		
+//		Check if user name exist 
+		if(!userMap.containsKey(username)) {
+			return ResponseEntity.notFound().build();
+		}
+
+
+//		Return the user 
+		return ResponseEntity.of(Optional.of(userMap.get(username)));
 		
 	}
+	
+	
 	
 	
 	
