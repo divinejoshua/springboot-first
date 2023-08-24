@@ -28,7 +28,7 @@ public class UserController {
 		userMap.put("john", new UserModel("John", "Doe", 123));
 		userMap.put("jane", new UserModel("Jane", "Doe", 234));
 		userMap.put("jack", new UserModel("Jack", "Doe", 345));
-		userMap.put("jill", new UserModel("Jill", "Doe", 456));
+		userMap.put("jil", new UserModel("Jil", "Doe", 456));
 	}
 	
 	
