@@ -21,8 +21,7 @@ public class UserController {
 	
 //	User hash map 
 	private Map<String, UserModel> userMap = new HashMap<>();
-	
-	
+
 //	User Data 
 	public UserController () {
 		userMap.put("john", new UserModel("John", "Doe", 123));
@@ -30,7 +29,6 @@ public class UserController {
 		userMap.put("jack", new UserModel("Jack", "Doe", 345));
 		userMap.put("jil", new UserModel("Jil", "Doe", 456));
 	}
-	
 	
 //	Home page 
 	@GetMapping("/")
@@ -63,9 +61,6 @@ public class UserController {
 		return ResponseEntity.of(Optional.of(userMap.get(username)));
 		
 	}
-	
-	
-	
 	
 	
 //	Add new user
